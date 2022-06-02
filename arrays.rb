@@ -17,17 +17,29 @@
  #puts  "el original es #{array}"
  
 
- contactos = {juan: '123456', jose: '7890'}
- contactos_nuevos = {manuel: '143456', maria: '7490'}
+ #contactos = {juan: '123456', jose: '7890'}
+ #contactos_nuevos = {manuel: '143456', maria: '7490'}
 
- mas_contactos = [contactos, contactos_nuevos]
- nombres = mas_contactos.map {|grupo| grupo.keys}.flatten
- puts "los nombres son: #{nombres}"
+ #mas_contactos = [contactos, contactos_nuevos]
+ #nombres = mas_contactos.map {|grupo| grupo.keys}.flatten
+ #puts "los nombres son: #{nombres}"
 
  #each para hashes
 
- contactos= {juan: '123456', jose: '7890'}
-    contactos.each do |key, value|
-        puts "la llave es #{key} y el valor es #{value}"
+ #contactos= {juan: '123456', jose: '7890'}
+   # contactos.each do |key, value|
+       # puts "la llave es #{key} y el valor es #{value}"
 
+    #end
+
+    print  "Ingresar el número de personas que participarán"
+    num = gets.chomp.to_i
+    personas = []
+
+    num.times do
+        print "Ingrese el nombre de la persona"
+        nombre = gets.chomp
+        personas << nombre
     end
+
+    puts "La persona seleccionada es #{personas.sample}"

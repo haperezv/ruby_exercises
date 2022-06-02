@@ -32,7 +32,7 @@ class Fizzbuzz
     end    
 end
 
-
+fizzbuzz = Fizzbuzz.new
 fizzbuzz.run
 fizzbuzz.fizzify(3) == "Fizz"
 fizzbuzz.fizzify(5) == "Buzz"
