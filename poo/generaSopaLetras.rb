@@ -7,35 +7,58 @@ class GeneraSopaLetras
         # generar una matriz de 10x10
         matriz = Array.new(16) { Array.new(16) }
         letras = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-        palabra1 =  "ABSTRACCION"
-        palabra2 =  "INSTANCIACION"
-        palabra3 =  "ESTATOCAS"
+        palabra1 =  ["ABSTRACCION",  "INSTANCIACION",  "VARIABLES", "ENCAPSULAMIENTO",  "VISIBILIDAD", "OBJETO" ]
 
-        palabra1.gsub!(/\s+/, "")
-        palabra1 =  palabra1.chars
-        palabra2.gsub!(/\s+/, "")
-        palabra2 =  palabra2.chars
-        palabra3.gsub!(/\s+/, "")
-        palabra3 =  palabra3.chars
-
-        for i in 0..15
-            for j in 0..15
+        (0..15).each do |i|
+            (0..15).each do |j|
                 matriz[i][j] = letras[rand(26)]
             end
         end
-        
 
-        for i in 0..10
-            matriz[i][0] = palabra1[i]
-        end
-        for i in 0..12
-            matriz[11][i] = palabra2[i]
-        print matriz    
+        # completar la palabra 1
+        completaPalabra(palabra1, matriz)
+
     end
+
+    def  completaPalabra(palabra, matriz)
+       
+       i = 0
+       while i < palabra.length
+            if  i == 0
+                palabra[i].length.times do |j|
+                    matriz[15][j] = palabra[i][j]
+                end
+                elsif  i == 1
+                    palabra[i].length.times do |j|
+                        matriz[9][j] = palabra[i][j]
+                    end
+                elsif  i == 2
+                    palabra[i].length.times do |j|
+                        matriz[j][j] = palabra[i][j]
+                    end
+                elsif  i == 3
+                    palabra[i].length.times do |j|
+                        matriz[j][15] = palabra[i][j]
+                    end
+                elsif  i == 4
+                    palabra[i].length.times do |j|
+                        matriz[j][8] = palabra[i][j]
+                    end
+                elsif  i == 5
+                    palabra.length.times do |j|
+                        matriz[10][j] = palabra[i][j]
+                    end
+            end
+        i  += 1
+      end
+
+        print matriz
+    end
+
 
 end
 
 sopaLetras = GeneraSopaLetras.new
-
- sopaLetras.generar()
+ sopaLetras.generar
+ #sopaLetras.c
 
